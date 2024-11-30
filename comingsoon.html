@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html>
+    <title>tech toy</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('https://images8.alphacoders.com/476/476260.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+    <nav class="navbar">
+        <li><a href="index.html">Home</a></li>
+    </nav>
+<div class="bgimg">
+  <div class="topleft">
+    <p>Tech Toy</p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p>60 days left</p>
+  </div>
+  <div class="bottomleft">
+    <p>i am come very vast</p>
+  </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with Circle Trigger</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+    }
+
+    .circle-btn {
+      width: 80px;
+      height: 80px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .circle-btn:hover {
+      background-color: #45a049;
+    }
+
+    .chat-container {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .chat-body {
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .chat-input-container {
+      display: flex;
+      padding: 10px;
+      background-color: #eaeaea;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .chat-send-btn {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-left: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .chat-send-btn:hover {
+      background-color: #45a049;
+    }
+
+    .delete-chat-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .delete-chat-btn:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Circle Trigger -->
+<div class="circle-btn" id="circleBtn">Chat</div>
+
+<!-- Chat Container -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">AI Chat</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input-container">
+    <input type="text" id="chatInput" class="chat-input" placeholder="Type your question...">
+    <button class="chat-send-btn" id="sendBtn">Send</button>
+  </div>
+  <button class="delete-chat-btn" id="deleteChatBtn">Delete Chat</button>
+</div>
+
+<script>
+  const circleBtn = document.getElementById('circleBtn');
+  const chatContainer = document.getElementById('chatContainer');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const deleteChatBtn = document.getElementById('deleteChatBtn');
+
+  const responses = {
+    "what is your phone no": "9873777990",
+    "what is your company phone no": "9873777990",
+    "what is your company email": "techtoy@gmail.com",
+    "what is your email": "techtoy@gmail.com",
+    "yah website kab aaegi": "29/12/2024",
+    "hi": "Hello! How can I assist you?",
+    " hi": "Hi there! Feel free to ask your questions."
+  };
+
+  // Show chat container
+  circleBtn.addEventListener('click', () => {
+    chatContainer.style.display = 'block';
+  });
+
+  // Handle user message
+  sendBtn.addEventListener('click', () => {
+    const userMessage = chatInput.value.trim();
+    if (userMessage === "") return;
+
+    // Add user message to chat body
+    addMessage(userMessage, 'user');
+
+    // Generate bot response
+    const botResponse = getResponse(userMessage.toLowerCase());
+    addMessage(botResponse, 'bot');
+
+    chatInput.value = ""; // Clear input
+  });
+
+  // Delete chat
+  deleteChatBtn.addEventListener('click', () => {
+    chatBody.innerHTML = ""; // Clear chat messages
+    chatContainer.style.display = 'none'; // Hide chat container
+  });
+
+  // Add message to chat
+  function addMessage(message, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = sender === 'user' ? `You: ${message}` : `Bot: ${message}`;
+    chatBody.appendChild(messageDiv);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll to bottom
+  }
+
+  // Get bot response
+  function getResponse(userMessage) {
+    return responses[userMessage] || "Sorry, I don't understand that.";
+  }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

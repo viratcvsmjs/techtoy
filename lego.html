@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Order - Order Now</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+   
+    <header class="header">
+        <div class="logo">
+            <h1>LEGO Store</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lego.html">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="lego-order-section">
+        <h2>Order LEGO Set</h2>
+
+        <div class="lego-order-container">
+          
+            <div class="product-image-container">
+                <img src="https://www.lego.com/cdn/cs/catalog/assets/blt4416e74bacb1ee4b/1/21240_WEB_PRI.jpg?quality=80&format=webply&width=2560" alt="LEGO Set Image" class="main-image">
+                <div class="image-thumbnails">
+                    <img src="https://images-cdn.ubuy.co.in/63b83bfdd2ee2d47fc073e93-lego-minecraft-the-swamp-adventure-21240.jpg" alt="LEGO Thumbnail 1" class="thumbnail">
+                    <img src="https://m.media-amazon.com/images/I/71juTn5mFrL._SX425_.jpg" alt="LEGO Thumbnail 2" class="thumbnail">
+                    <img src="https://toycra.com/cdn/shop/products/Lego-21240-Minecraft-The-Swamp-Adventure-Construction-Lego-Toycra-9_700x700.webp?v=1681468333" alt="LEGO Thumbnail 3" class="thumbnail">
+                                  </div>
+            </div>
+
+           
+            <div class="product-info">
+                <h3>LEGO Minecraft The Swamp Adventure 21240 Building Toy Set</h3>
+                <p class="description">
+                    LEGO Minecraft The Swamp Adventure 21240 Building Toy Set (65 Pieces), Multi Color
+                </p>
+                <p class="price">Price:  ₹1,099 </p>
+                <div class="quantity-container">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="100" value="1">
+                </div>
+                <div class="buttons">
+                   <a href="checkout.html" class="buy-now-btn">Order Now</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+        <script>
+        
+        const orderNowButton = document.querySelector('.buy-now-btn');
+        const quantityInput = document.getElementById('quantity');
+
+        orderNowButton.addEventListener('click', () => {
+            const quantity = quantityInput.value;
+            localStorage.setItem('lego-quantity', quantity);  
+            localStorage.setItem('lego-price', 199.99); 
+        });
+    </script>
+
+   
+    <footer class="footer">
+        <p>&copy; 2024 LEGO Store. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

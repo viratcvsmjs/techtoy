@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Toy Store</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #4CAF50;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 85px;
+            height: 120px;
+            object-fit: cover;
+            margin: 10px auto;
+        }
+
+        .product-content {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+        }
+        /* General link styles */
+a {
+    text-decoration: none;
+    color: #007BFF; /* Default blue link color */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for links */
+a:hover {
+    color: #FF4500; /* Change to orange on hover */
+    transform: scale(1.1); /* Slightly enlarge the link on hover */
+}
+
+/* Navbar-specific link styles */
+.navbar ul {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Align items in a row */
+    gap: 20px; /* Space between links */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    font-size: 16px; /* Font size for navbar links */
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Light background for links */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #FFEB3B; /* Highlighted background on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Active link style */
+.navbar a.active {
+    background-color: #FF5722; /* Different color for the active link */
+    color: #fff; /* White text for the active link */
+}
+
+/* Responsive Navbar for Small Screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Stack links vertically on small screens */
+        gap: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- Link to Home Page -->
+                <li><a href="#products">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Our Products</h1>
+
+    <!-- Products Container -->
+    <div class="products-container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/51DBd7O6GEL._SX425_.jpg" alt="Toy Robot" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Toy Robot</h2>
+                <p class="product-description">An interactive robot with lights and sound. Perfect for tech-loving kids.</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/618srDutK+L._SX425_.jpg" alt="Building Blocks" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Building Blocks</h2>
+                <p class="product-description">Colorful blocks to spark creativity and inspire fun learning experiences.</p>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQVKTgKsYDQhy3Uxn4U8PMCtAYwgBICcif9rTnFG2xCp7rBN5ITh6LeWnGpMRpEu6KcpLsg8ADjdtLll19JBcbt5rhOvuaFGyPSnlMzpI8MuQu0VGEIQ6PX" alt="Plush Teddy" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Plush Teddy</h2>
+                <p class="product-description">A soft and cuddly teddy that brings comfort and joy to kids of all ages.</p>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71MZInFmQsL._SX425_.jpg" alt="Racing Car" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Racing Car</h2>
+                <p class="product-description">A high-speed remote-controlled car for thrilling racing adventures.</p>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71x03iC+fqL._SX425_.jpg" alt="Magic Puzzle" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Magic Puzzle</h2>
+                <p class="product-description">A challenging and fun puzzle for curious minds.</p>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61qMZAPI1fL._SX425_.jpg" alt="Racing Drone" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Racing Drone</h2>
+                <p class="product-description">High-speed drone for thrilling outdoor adventures.</p>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/8107U2w5qKL._SX425_.jpg" alt="Wooden Train Set" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Wooden Train Set</h2>
+                <p class="product-description">A classic toy for creative play and learning.</p>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/715iU2pb0fL._SL1500_.jpg" alt="Superhero Figures" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Superhero Figures</h2>
+                <p class="product-description">Collect your favorite superheroes in one set.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
